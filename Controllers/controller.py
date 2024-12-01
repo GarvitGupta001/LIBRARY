@@ -1,5 +1,5 @@
 from flask import request
-from Services.service import userService, SearchService, BookService, employeeService, authorService, vendorService, publisherService
+from Services.service import userService, SearchService, BookService, employeeService, authorService, vendorService, publisherService, transactionService
 from flask import Blueprint, jsonify, request
 from Views.view import View
 from werkzeug.utils import secure_filename
@@ -206,3 +206,22 @@ class publisherController:
         else:
             publisher = publisherService.remove_publisher(publisher)
             return publisher.to_dict()
+        
+class transactionController:
+    @staticmethod
+    def add_transaction():
+        data = request.form
+        new_transaction = transactionService.add_transaction(data)
+        return new_transaction.to_dict()
+
+    @staticmethod
+    def get_for_member(member_id):
+        transactions = transactionService.get_for_member(member_id)
+        transaction_list = [transaction.to_dict() for transaction in transactions]
+        return transaction_list
+    
+    @staticmethod
+    def get_for_employee(employee_id):
+        transactions = transactionService.get_for_employee(employee_id)
+        transaction_list = [transaction.to_dict() for transaction in transactions]
+        return transaction_list

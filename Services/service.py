@@ -8,6 +8,7 @@ from Models.publisher_model import Publishers
 from Models.employee_model import Employees
 from Models.author_model import Authors
 from Models.vendor_model import Vendors
+from Models.transaction_model import Transactions
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -21,6 +22,12 @@ class userService:
 
     def get_employee_by_mail(mail):
         return Employees.query.filter_by(mail=mail).first()
+    
+    def get_member_by_name(name):
+        return Members.query.filter_by(name=name).first()
+
+    def get_employee_by_name(name):
+        return Employees.query.filter_by(name=name).first()
 
     @staticmethod
     def sign_up(name, password, dob, mail):
@@ -245,4 +252,38 @@ class BookService:
     def get_book_by_id(book_id):
         book = Books.query.filter_by(id=book_id).first()
         return book.to_dict()
+    
+class transactionService:
+    @staticmethod
+    def add_transaction(data):
+        new_transaction = Transactions(
+            type=data.get('type'),
+            employee_id=userService.get_employee_by_name(data.get('employee_name')).id,
+            member_id=userService.get_member_by_name(data.get('member_name')).id,
+            book_id=BookService.get_book_by_title(data.get('title')).id
+        )
+        db.session.add(new_transaction)
+        db.session.commit()
+        return new_transaction
+    
+    @staticmethod
+    def modify_transaction(transaction, data):
+            transaction.type=data.get('type'),
+            transaction.date=data.get('date'),
+            transaction.employee_id=userService.get_employee_by_name(data.get('employee_name')).id,
+            transaction.member_id=userService.get_member_by_name(data.get('member_name')).id,
+            transaction.title=data.get('title')
+            db.session.commit()
+            return transaction
+    
+    
+    @staticmethod
+    def get_for_member(member_id):
+        transactions=Transactions.query.filter_by(member_id=member_id).all()
+        return transactions
+    
+    @staticmethod
+    def get_for_employee(employee_id):
+        transactions=Transactions.query.filter_by(employee_id=employee_id).all()
+        return transactions
     

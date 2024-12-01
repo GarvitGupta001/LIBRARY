@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify
-from Controllers.controller import authenticaionController, SearchController, BookController, userController, employeeController, authorController, vendorController, publisherController
+from Controllers.controller import authenticaionController, SearchController, BookController, userController, employeeController, authorController, vendorController, publisherController, transactionController
 from flask_login import login_required, current_user, logout_user
 
 bp = Blueprint('bp', __name__)
@@ -81,6 +81,11 @@ def add_publisher():
 
 @bp.route('/add_transaction', methods=['GET', 'POST'])
 def add_transaction():
+    if request.method == 'POST':
+        transaction = transactionController.add_transaction()
+        if 'error' in transaction:
+            return render_template('add_transaction.html', error=transaction['error'])
+        return render_template('add_transaction.html', error='')
     return render_template('add_transaction.html')
 
 @bp.route('/update_book', methods=['GET', 'POST'])
@@ -172,7 +177,11 @@ def book_view(book_id):
 
 @bp.route('/view_history', methods=['GET'])
 def view_history():
-    return render_template('view_history.html')
+    if current_user.type == "member":
+        list=transactionController.get_for_member(current_user.id)
+    else:
+        list=transactionController.get_for_employee(current_user.id)
+    return render_template('view_history.html',transactions=list)
 
 @bp.route('/view_all_members', methods=['GET'])
 def view_all_members():
