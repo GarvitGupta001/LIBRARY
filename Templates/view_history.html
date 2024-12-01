@@ -23,7 +23,6 @@
                             <th>Type</th>
                             <th>Issued To</th>
                             <th>Issued By</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     {% for transaction in transactions %}
@@ -36,7 +35,6 @@
                             <td>{{transaction["type"]}}</td>
                             <td>{{transaction["member"]["name"]}}</td>
                             <td>{{transaction["employee"]["name"]}}</td>
-                            <td>{{transaction["status"]}}</td>
                         </tr>
                     </tbody>
                     {% endfor %}

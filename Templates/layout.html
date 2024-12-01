@@ -18,6 +18,7 @@
         <a href="/dashboard">Dashboard</a>
         <a href="/home_page">Search a Book</a>
         <a href="/view_history">View History</a>
+        <a href="/view_fines">View Your Fines</a>
         <a href="/view_location">Find Book</a>
         <a href="/logout">Log Out</a>
         {% elif current_user.is_authenticated and current_user.type == 'admin' %}
@@ -56,6 +57,7 @@
             <button class="dropbtn">View</button>
             <div class="dropdown-content">
                 <a href="/view_history">Transaction History</a>
+                <a href="/view_fines">View Issued Fines</a>
                 <a href="/view_all_members">View all Members</a>
                 <a href="/view_location">Find Book</a>
             </div>

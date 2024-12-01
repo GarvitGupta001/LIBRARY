@@ -37,7 +37,6 @@ class Fines(db.Model):
             'member_id': self.member_id,
             'book_id': self.book_id,
             'book_title':Books.query.filter_by(id = self.book_id).first().title,
-            'author_name':Books.query.filter_by(id = self.book_id).first().to_dict()["author"],
             'employee': self.employee.to_dict() if self.employee else None,
             'member': self.member.to_dict() if self.member else None,
             'book': self.book.to_dict() if self.book else None
