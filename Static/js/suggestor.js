@@ -140,7 +140,7 @@ if (searchEmployee){
         const employee = e.target.value;
         if (employee.length > 2) {
             try {
-                response = await fetch(`/member_search?search=${encodeURIComponent(employee)}`);
+                response = await fetch(`/employee_search?search=${encodeURIComponent(employee)}`);
                 var suggestions = await response.json()
                 employeeSuggestionList.innerHTML = '';
                 suggestions.forEach(suggestion => {

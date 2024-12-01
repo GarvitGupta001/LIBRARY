@@ -10,8 +10,8 @@
         </div>
         <div>
             <label for="type">Transaction Type:</label>
-            <select id="transaction_type" name="type">
-                <option value = "" selected hidden>Not Selected</option>
+            <select id="transaction_type" name="type" required>
+                <option value = "" selected hidden disabled>Not Selected</option>
                 <option value = "issue">Issue</option>
                 <option value = "return">Return</option>
             </select>
@@ -30,6 +30,7 @@
         <div>
             <label for="book_title">Book Title:</label>
             <input type="text" id="book_title" name="title" required>
+            <ul id="bookSuggestionList" class="suggestionList"></ul>
         </div>
         <button type="submit">Add</button>
     </form>
