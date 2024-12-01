@@ -170,6 +170,36 @@ def search_book():
     results = SearchController.search_book(search)
     return jsonify(results)
 
+@bp.route("/author_search", methods=['GET'])
+def search_author():
+    search = request.args.get('search').lower()
+    results = SearchController.search_author(search)
+    return jsonify(results)
+
+@bp.route("/publisher_search", methods=['GET'])
+def search_publisher():
+    search = request.args.get('search').lower()
+    results = SearchController.search_publisher(search)
+    return jsonify(results)
+
+@bp.route("/vendor_search", methods=['GET'])
+def search_vendor():
+    search = request.args.get('search').lower()
+    results = SearchController.search_vendor(search)
+    return jsonify(results)
+
+@bp.route("/member_search", methods=['GET'])
+def search_member():
+    search = request.args.get('search').lower()
+    results = SearchController.search_member(search)
+    return jsonify(results)
+
+@bp.route("/employee_search", methods=['GET'])
+def search_employee():
+    search = request.args.get('search').lower()
+    results = SearchController.search_employee(search)
+    return jsonify(results)
+
 @bp.route('/book/<int:book_id>', methods=['GET'])
 def book_view(book_id):
     book = BookController.book_view(book_id)

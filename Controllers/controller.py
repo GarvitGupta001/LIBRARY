@@ -32,6 +32,26 @@ class SearchController:
     def search_book(book):
         return SearchService.get_books_by_name_partial(book)
     
+    @staticmethod
+    def search_author(author):
+        return SearchService.get_author_by_name_partial(author)
+    
+    @staticmethod
+    def search_publisher(publisher):
+        return SearchService.get_publisher_by_name_partial(publisher)
+    
+    @staticmethod
+    def search_vendor(vendor):
+        return SearchService.get_vendor_by_name_partial(vendor)
+    
+    @staticmethod
+    def search_member(member):
+        return SearchService.get_member_by_name_partial(member)
+    
+    @staticmethod
+    def search_employee(employee):
+        return SearchService.get_employee_by_name_partial(employee)
+    
 class BookController:
     @staticmethod
     def add_book():

@@ -186,9 +186,35 @@ class publisherService:
         return publisher
 
 class SearchService:
+    @staticmethod
     def get_books_by_name_partial(book_title):
         books = Books.query.filter(Books.title.ilike(f"%{book_title}%")).all()
         return [book.to_dict() for book in books] if books else []
+    
+    @staticmethod
+    def get_author_by_name_partial(author_name):
+        authors = Authors.query.filter(Authors.name.ilike(f"%{author_name}%")).all()
+        return [author.to_dict() for author in authors] if authors else []
+    
+    @staticmethod
+    def get_publisher_by_name_partial(publisher_name):
+        publishers = Publishers.query.filter(Publishers.name.ilike(f"%{publisher_name}%")).all()
+        return [publisher.to_dict() for publisher in publishers] if publishers else []
+    
+    @staticmethod
+    def get_vendor_by_name_partial(vendor_name):
+        vendors = Vendors.query.filter(Vendors.name.ilike(f"%{vendor_name}%")).all()
+        return [vendor.to_dict() for vendor in vendors] if vendors else []
+    
+    @staticmethod
+    def get_member_by_name_partial(member_name):
+        members = Members.query.filter(Members.name.ilike(f"%{member_name}%")).all()
+        return [member.to_dict() for member in members] if members else []
+    
+    @staticmethod
+    def get_employee_by_name_partial(employee_name):
+        employees = Employees.query.filter(Employees.name.ilike(f"%{employee_name}%")).all()
+        return [employee.to_dict() for employee in employees] if employees else []
     
 class BookService:
     def add_book(data, cover_page):

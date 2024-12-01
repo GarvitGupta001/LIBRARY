@@ -2,12 +2,6 @@ const searchInput = document.getElementById('book_title');
 const preface = document.getElementById('book_preface');
 const publisher = document.getElementById('publisher_name');
 const vendor = document.getElementById('vendor_name');
-const shelf = document.getElementById('shelf_id');
-const price = document.getElementById('price');
-const availability = document.getElementById('availability');
-const dop = document.getElementById('date_of_publishing');
-const dos = document.getElementById('shelf_date');
-const dob = document.getElementById('bought_on');
 const bookSuggestionList = document.getElementById('bookSuggestionList');
 
 searchInput.addEventListener('input', async (e) => {
