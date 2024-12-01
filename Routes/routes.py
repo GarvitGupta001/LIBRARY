@@ -221,3 +221,12 @@ def view_all_members():
 @bp.route('/view_location', methods=['GET'])
 def view_location():
     return render_template('view_location.html')
+
+@bp.route('/view_fines', methods=['GET'])
+def view_fines():
+    # if current_user.type == "member":
+    #     list=transactionController.get_for_member(current_user.id)
+    # else:
+    #     list=transactionController.get_for_employee(current_user.id)
+    return render_template('view_fines.html')
+# ,transactions=list)
