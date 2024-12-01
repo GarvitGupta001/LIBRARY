@@ -26,20 +26,20 @@
                             <th>Status</th>
                         </tr>
                     </thead>
+                    {% for transaction in transactions %}
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>2024-11-30</td>
-                            <td>Book Title 1</td>
-                            <td>Author 1</td>
-                            <td>issue</td>
-                            <td>Issued Member</td>
-                            <td>Issuing Employee</td>
-                            <td>Status</td>
-        
+                            <td>{{transaction["id"]}}</td>
+                            <td>{{transaction["date"]}}</td>
+                            <td>{{transaction["book"]["title"]}}</td>
+                            <td>{{transaction["author_name"]}}</td>
+                            <td>{{transaction["type"]}}</td>
+                            <td>{{transaction["member"]["name"]}}</td>
+                            <td>{{transaction["employee"]["name"]}}</td>
+                            <td>{{transaction["status"]}}</td>
                         </tr>
-                        <!-- Add more rows as needed -->
                     </tbody>
+                    {% endfor %}
                 </table>
             </section>
         </div>
