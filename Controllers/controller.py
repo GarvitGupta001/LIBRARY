@@ -258,6 +258,6 @@ class transactionController:
     
     @staticmethod
     def get_fines_for_employee(employee_id):
-        transactions = transactionService.get_for_member(employee_id)
+        transactions = transactionService.get_for_employee(employee_id)
         fines = transactionService.get_fines_of_transactions(transactions)
         return fines

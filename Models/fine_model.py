@@ -19,7 +19,7 @@ class Fines(db.Model):
     def to_dict(self):
         """Convert the FineModel instance into a dictionary format."""
         return {
-            'fine_id': self.id,
+            'id': self.id,
             'amount': self.amount,
             'days_delay': self.days_delay,
             'transaction': self.transaction.to_dict() if self.transaction else None
