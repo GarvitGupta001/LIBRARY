@@ -19,15 +19,19 @@ from datetime import date, timedelta
 
 
 class userService:
+    @staticmethod
     def get_member_by_mail(mail):
         return Members.query.filter_by(mail=mail).first()
 
+    @staticmethod
     def get_employee_by_mail(mail):
         return Employees.query.filter_by(mail=mail).first()
 
+    @staticmethod
     def get_member_by_name(name):
         return Members.query.filter_by(name=name).first()
 
+    @staticmethod
     def get_employee_by_name(name):
         return Employees.query.filter_by(name=name).first()
 
@@ -97,7 +101,6 @@ class employeeService:
         db.session.commit()
         return new_employee
 
-
 class authorService:
     @staticmethod
     def add_author(data):
@@ -128,8 +131,7 @@ class authorService:
         db.session.delete(author)
         db.session.commit()
         return author
-
-
+ 
 class vendorService:
     @staticmethod
     def add_vendor(data):
