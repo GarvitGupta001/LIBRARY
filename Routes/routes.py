@@ -4,6 +4,10 @@ from flask_login import login_required, current_user, logout_user
 
 bp = Blueprint('bp', __name__)
 
+@bp.route('/', methods=['GET'])
+def index():
+    return redirect(url_for('bp.login'))
+
 @bp.route('/home_page', methods=['GET','POST'])
 def home_page():
     return render_template('home_page.html', current_user=current_user)

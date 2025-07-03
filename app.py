@@ -27,6 +27,7 @@ def load_user(mail):
     
 
 if __name__ == '__main__':
+    print("Starting flask app...")
     app.run(debug='True', port=5000)
 
 from Models import author_model,book_model,employee_model,fine_model,member_model,publisher_model,shelf_model,transaction_model,vendor_model

@@ -2,3 +2,26 @@ venv
 migrations
 __pycache__
 config
+profile_pics
+# IDE/editor folders
+.vscode/
+.idea/
+# OS files
+.DS_Store
+Thumbs.db
+# Python cache and build artifacts
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+# Environment/config files
+.env
+.env.*
+# SQLite DB (if used)
+*.db
+# Log files
+*.log
+# Static/media uploads (if not tracked)
+Static/media/profile_pics/
