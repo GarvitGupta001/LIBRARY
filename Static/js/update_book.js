@@ -33,7 +33,7 @@ searchInput.addEventListener('input', async (e) => {
                     dob.value = suggestion.bought_on;
                     bookSuggestionList.innerHTML = '';
                 });
-                li.classList.add("suggestion  ")
+                li.classList.add("suggestion")
                 bookSuggestionList.appendChild(li);
             });
         } catch (error) {
