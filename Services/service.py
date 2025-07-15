@@ -162,7 +162,6 @@ class vendorService:
         db.session.commit()
         return vendor
 
-
 class publisherService:
     @staticmethod
     def add_publisher(data):
@@ -192,7 +191,6 @@ class publisherService:
         db.session.delete(publisher)
         db.session.commit()
         return publisher
-
 
 class SearchService:
     @staticmethod
@@ -229,7 +227,6 @@ class SearchService:
         employees = Employees.query.filter(
             Employees.name.ilike(f"%{employee_name}%")).all()
         return [employee.to_dict() for employee in employees] if employees else []
-
 
 class BookService:
     def add_book(data, cover_page):
@@ -298,7 +295,6 @@ class BookService:
     def get_book_by_id(book_id):
         book = Books.query.filter_by(id=book_id).first()
         return book.to_dict()
-
 
 class transactionService:
     @staticmethod

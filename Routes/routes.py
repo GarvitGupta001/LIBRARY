@@ -6,7 +6,7 @@ bp = Blueprint('bp', __name__)
 
 @bp.route('/', methods=['GET'])
 def index():
-    return redirect(url_for('bp.login'))
+    return redirect(url_for('bp.home_page'))
 
 @bp.route('/home_page', methods=['GET','POST'])
 def home_page():
